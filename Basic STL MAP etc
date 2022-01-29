@@ -1,0 +1,117 @@
+### HOW TO USE MAP (STL)
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    map<int,string> m;
+    m[1]="abc";
+    m[5]="cdc";
+    m[3]="ade";
+    m.insert({4,"fdf"});  // another way to insert the value
+    m.insert(make_pair(2,"zcx"));
+    
+    map<int,string> :: iterator  it;
+    for( it =m.begin();it!=m.end();it++)
+    {
+        cout<<(*it).first<<" "<<(*it).second<<endl;
+    }
+	return 0;
+}
+
+## ANOTHER WAY TO write using auto instead of using iterator and making it much simpler
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    map<int,string> m;
+    m[1]="abc";
+    m[5]="cdc";
+    m[3]="ade";
+    m.insert({4,"fdf"});  // another way to insert the value
+    m.insert(make_pair(2,"zcx"));
+    
+    for( auto &pr : m)
+    {
+        cout<<pr.first<<" "<<pr.second<<endl;
+    }
+	return 0;
+}
+
+#### with bit of additional changes
+
+
+#include <bits/stdc++.h>
+using namespace std;
+void print(map<int,string> &m)
+{
+    cout<<m.size()<<endl;
+     for( auto &pr : m)
+    {
+        cout<<pr.first<<" "<<pr.second<<endl;
+    }
+    
+}
+
+int main() {
+    
+    map<int,string> m;
+    m[1]="abc";
+    m[5]="cdc";
+    m[3]="ade";
+    m.insert({4,"fdf"});                                         // another way to insert the value
+    m.insert(make_pair(2,"zcx"));
+    auto it =m.find(3);                                         //O(logn)
+    if( it== m.end())
+    {
+        cout<<"No Value"<<endl;
+    }
+    else
+    {
+        cout<< (*it).first<<" "<<(*it).second<<endl;
+    }
+    print(m);
+   
+	return 0;
+}
+
+#### Use  of Erase in mapping
+
+#include <bits/stdc++.h>
+using namespace std;
+void print(map<int,string> &m)
+{
+    cout<<m.size()<<endl;
+     for( auto &pr : m)
+    {
+        cout<<pr.first<<" "<<pr.second<<endl;
+    }
+    
+}
+
+int main() {
+    
+    map<int,string> m;
+    m[1]="abc";
+    m[5]="cdc";
+    m[3]="ade";
+    m.insert({4,"fdf"});                                // another way to insert the value
+    m.insert(make_pair(2,"zcx"));
+    auto it =m.find(7);
+    if( it!=m.end())                                   //{ safety check to see whether their is need of m.erase or not}
+    m.erase(it);
+//m.clear()                                               // to print the zero size of map
+   /* if( it== m.end())
+    {
+        cout<<"No Value"<<endl;
+    }
+    else
+    {
+        cout<< (*it).first<<" "<<(*it).second<<endl;
+    }*/
+    print(m);
+   
+	return 0;
+}
