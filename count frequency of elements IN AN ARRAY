@@ -1,0 +1,64 @@
+
+
+
+count frequency of elements IN AN ARRAY
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n];
+    for( int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    int q;
+    cin>>q;
+    while(q--)
+    {                             TIME COMPLEXITY = O(N) + O(Q*n)(ALSO AS N^2)  
+        int x;                                     =O(N^2) 
+        cin>>x;
+        int ct=0;
+        for( int i=0;i<n;i++)
+        {
+            if(arr[i]==x)
+            {
+                ct++;
+            }
+        }
+        cout<<ct<<endl;
+    }
+}
+
+
+### HASHING 
+## count frequency of elements IN AN ARRAY  (hashing)
+
+#include<bits/stdc++.h>
+using namespace std;
+const int N= 1e+7;
+int hsh[N];
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n];
+    for( int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+        hsh[arr[i]]++;
+    }
+    
+    int q;
+    cin>>q;
+    while(q--)
+    {
+        int x;
+        cin>>x;
+      
+        cout<<hsh[x]<<endl;
+    }
+} 
